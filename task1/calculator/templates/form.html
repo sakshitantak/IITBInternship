@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Task 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="static/css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Calculator</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-6">
+								<div class="contact-wrap w-100 p-lg-5 p-4">
+									<h3 class="mb-4">Input</h3>
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Calculating
+				      		</div>
+									<form method="POST" action={{ url_for('result') }} class="contactForm">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="D" id="D" placeholder="D" min=0>
+												</div>
+											</div>
+											<div class="col-md-12"> 
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="R" id="R" placeholder="R" min=0>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="r" id="r" placeholder="r" min=0>
+												</div>
+											</div>
+                                            <div class="col-md-12">
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="hi" id="hi" placeholder="hi" min=0>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="tb" id="tb" placeholder="tb" min=0>
+												</div>
+											</div>
+                                            <div class="col-md-12">
+												<div class="form-group">
+													<input type="number" step="any" class="form-control" name="tk" id="tk" placeholder="tk" min=0>
+												</div>
+											</div>
+                                            <div class="col-md-12">
+												<div class="form-group">
+													<select class="form-control" name="operation" id="operation" placeholder="operation">
+                                                        <option style="color: black;">Lc</option>
+                                                        <option style="color: black;">Area</option>
+                                                    </select>
+												</div>
+											</div>
+
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Calculate" class="btn btn-primary" style="float: left; width: 160px;">&nbsp;&nbsp;&nbsp;
+                                                    <input type="reset" value="Reset" class="btn btn-primary" style="float: right; width: 160px">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-6 d-flex align-items-stretch">
+								<div class="info-wrap w-100 p-lg-5 p-4 img">
+									<h3>Task Details</h3>
+									<p class="mb-4">Task 1</p>
+				        	        <div class="dbox w-100 d-flex align-items-start">
+				        		        <div class="icon d-flex align-items-center justify-content-center">
+				        			        <span class="fa fa-bookmark"></span>
+				        		        </div>
+				        		        <div class="text pl-3">
+					                        <p><span>Stack used : </span>HTML, CSS, bootstrap, Python, Flask</p>
+					                    </div>
+				                    </div>
+                                    <div class="dbox w-100 d-flex align-items-start">
+				        		        <div class="icon d-flex align-items-center justify-content-center">
+				        			        <span class="fa fa-bookmark"></span>
+				        		        </div>
+				        		        <div class="text pl-3">
+					                        <p><span>Problem Statement Details</span></p>
+					                    </div>
+				                    </div>
+                                    <div class="icon d-flex align-items-center justify-content-center">
+                                        <img src="static/ps_img.PNG" width="380px" height="auto">
+                                    </div>
+			                    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}})</script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
