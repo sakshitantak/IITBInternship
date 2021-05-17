@@ -13,13 +13,32 @@ def welcome():
 @app.route('/result', methods = ['POST'])
 def result():
     D = request.form.get("D", type=float)
-    R = request.form.get("R", type=float)
-    r = request.form.get("r", type=float)
-    hi = request.form.get("hi", type=float)
-    tb = request.form.get("tb", type=float)
-    tk = request.form.get("tk", type=float)
-    operation = request.form.get("operation")
+    if D is None:
+        D = 0
 
+    R = request.form.get("R", type=float)
+    if R is None:
+        R = 0
+
+    r = request.form.get("r", type=float)
+    if r is None:
+        r = 0
+
+    hi = request.form.get("hi", type=float)
+    if hi is None:
+        hi = 0
+
+    tb = request.form.get("tb", type=float)
+    if tb is None:
+        tb = 0
+
+    tk = request.form.get("tk", type=float)
+    if tk is None:
+        tk = 0
+    
+    operation = request.form.get("operation")
+    result = 0
+    
     if operation == "Lc":
         result = math.sqrt(D * tk) - 4 * (tk - tb)
     elif operation == "Area":
