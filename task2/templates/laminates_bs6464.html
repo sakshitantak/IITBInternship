@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Laminates</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/style.css">
+
+        <style>
+            .box1-label{
+                padding-left: 2%;
+                color: black;
+                width: 20%;
+                background-color: lightgrey;
+                margin-left: 1%;
+                min-width: 0.2%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box1-input-disabled{
+                border : 1px solid-black;
+                color: black;
+                margin-left: 1%;
+                width: 10%;
+                background-color: lightgrey;
+                min-width: 0.2%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box1-input-yellow{
+                border : 1px solid-black;
+                color: black;
+                margin-left: 1%;
+                width: 10%;
+                background-color: yellow;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-input-yellow{
+                border:1px solid-black;
+                margin-left: 0.5%;
+                width: 6.5%;
+                background-color: yellow;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+
+            .inner-fieldset{
+                border : 1px solid#000;
+                padding-left: 1%;
+                /*padding-bottom : 2%; */
+                padding-top : 1%;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-heading{
+                border:1px solid-black;
+                color: black;
+                margin-left: 0.5%;
+                width: 6.5%;
+                background-color: violet;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-col2-label{
+                padding-left: 2%;
+                color: black;
+                width: 33%;
+                background-color: lightgrey;
+                margin-left: 0.5%;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-long-blue{
+                border: 1px solid-black;
+                color: black;
+                margin-left: 0.5%;
+                width: 21%;
+                background-color: lightskyblue;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-input-yellow-filament{
+                border:1px solid-black;
+                margin-left: 15%;
+                width: 6.4%;
+                background-color: yellow;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+
+            .box2-grey-disabled{
+                border:1px solid-black;
+                margin-left: 0.5%;
+                width: 6.5%;
+                background-color: lightgrey;
+                min-width: 0.1%;
+                font-size: max(1.5vmin, 1vmax);
+            }
+        </style>
+    </head>
+
+    <body style="width: 100%; height: 100%; flex-shrink: 3;">
+        <div class="wrapper" style="margin:0%; padding-top: 3%; position: absolute; width: auto;">
+            <div class="wrapper" style="padding:1% 1% 1% 1%; border-radius: 10px;">
+                <fieldset>
+                    <legend>Laminates</legend>
+                    <form method="POST" class="form-horizontal" style="width: auto; position: inherit;">
+                        <fieldset class="inner-fieldset">
+                            <legend style="font-size: large; width: auto;">Design Properties</legend>
+                            <tr>
+                                <td>
+                                    <label class="box1-label" for="K">Factor of Safety K</label>
+                                    <input class="box1-input-disabled" name="K" id="K" placeholder={{ K }} disabled>
+                                </td>
+
+                                <td>
+                                    <label class="box1-label" for="K1">K1 - Method of Manufacture</label>
+                                    <input type="number" step="any" class="box1-input-yellow" name="K1" id="K1" placeholder={{ K1 }}>
+                                </td>
+
+                                <td>
+                                    <label class="box1-label" for="K4">K4 - Relating to cycle loading</label>
+                                    <input type="number" step="any" class="box1-input-yellow" name="K4: id="K4" placeholder={{ K4 }}>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label class="box1-label" for="curing_procedure">Curing Procedure</label>
+                                    <select class="box1-input-yellow" name="curing_procedure">
+                                        <option style="color: black; background-color: yellow;" selected>Full Post Cure</option>
+                                        <option style="color: black; background-color: yellow;">No</option>
+                                    </select>
+                                </td>
+
+                                <td>
+                                    <label class="box1-label" for="K2">K2 - For Chemical Environment</label>
+                                    <input type="number" step="any" class="box1-input-yellow" name="K2" id="K2" placeholder={{ K2 }}>
+                                </td>
+
+                                <td>
+                                    <label class="box1-label" for="K5">K5 - Relating to curing procedure</label>
+                                    <input type="number" step="any" class="box1-input-yellow" name="K5" id="K5" placeholder={{ K5 }}>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label class="box1-label" for="K3">K3 - Relating to Temperature</label>
+                                    <input type="number" class="box1-input-yellow" name="K3" id="K3" placeholder={{ K3 }}>
+                                </td>
+
+                                <td>
+                                    <label class="box1-label" for="F">F - Buckling Design Factor</label>
+                                    <input class="box1-input-disabled" name="F" id="F" placeholder={{ F }} disabled>
+                                </td>
+                            </tr>
+                        </fieldset>
+
+                        <br>
+                        <br>
+
+                        <fieldset class="inner-fieldset">
+                                <tr>
+                                    <td>
+                                        <label class="box1-label" style="background-color: transparent;"></label>
+                                        <!-- <label style="padding-left:2%; color: black; width:20%;"></label> -->
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-heading">CSM</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <label class="box2-heading">WRM</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <label class="box2-heading">Filament</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <label class="box2-col2-label" style="background-color: transparent;"></label>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-heading">CSM</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <label class="box2-heading">WRM</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <label class="box2-heading">Filament</label>
+                                    </td>
+                                </tr>
+        
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Areal Density(g/m2)</label>
+                                    </td>
+                                    <td>
+                                        <select class="box2-input-yellow" name="areal_density_csm">
+                                            <option style="color: black; background-color: yellow;" selected>300</option>
+                                            <option style="color: black; background-color: yellow;">option2</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select class="box2-input-yellow" name="areal_density_wrm">
+                                            <option style="color: black; background-color: yellow;" selected>800</option>
+                                            <option style="color: black; background-color: yellow;">option2</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <select class="box2-input-yellow" name="areal_density_filament">
+                                            <option style="color: black; background-color: yellow;" selected>800</option>
+                                            <option style="color: black; background-color: yellow;">option2</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Extension to failure for resin R(%)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-long-blue" name="extension_to_failure_for_resin" id="extension_to_failure_for_resin" placeholder={{ extension_to_failure_for_resin }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Unit tensile strength U (N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" name="U_csm" placeholder={{ U_csm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="U_wrm" placeholder={{ U_wrm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="U_filament" placeholder={{ U_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Factored allowable limited design load UL(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="UL_csm" placeholder={{ UL_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="UL_wrm" placeholder={{ UL_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="UL_filament" placeholder={{ UL_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Unit modulus X(N/mm/kg/mm2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="X_csm" placeholder={{ X_csm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="X_wrm" placeholder={{ X_wrm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="X_filament" placeholder={{ X_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Load limiting strain(mm/mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="load_limiting_strain_csm" placeholder={{ load_limiting_strain_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="load_limiting_strain_wrm" placeholder={{ load_limiting_strain_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="load_limiting_strain_filament" placeholder={{ load_limiting_strain_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Interlaminar shear strength(N/mm2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="internal_laminal_shear_strength_csm" placeholder={{ internal_laminal_shear_strength_csm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="internal_laminal_shear_strength_wrm" placeholder={{ internal_laminal_shear_strength_wrm }}>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow" name="internal_laminal_shear_strength_filament" placeholder={{ internal_laminal_shear_strength_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Maximum allowable lamina design strain(mm/mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="maximum_allowable_lamina_design_strain_csm" placeholder={{ maximum_allowable_lamina_design_strain_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="maximum_allowable_lamina_design_strain_wrm" placeholder={{ maximum_allowable_lamina_design_strain_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="maximum_allowable_lamina_design_strain_filament" placeholder={{ maximum_allowable_lamina_design_strain_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Glass Fiber Mass Fraction(%)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" name="glass_fiber_mass_fraction_csm" placeholder={{ glass_fiber_mass_fraction_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" name="glass_fiber_mass_fraction_wrm" placeholder={{ glass_fiber_mass_fraction_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" name="glass_fiber_mass_fraction_filament" placeholder={{ glass_fiber_mass_fraction_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Allowable Design Strain(mm/mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_design_strain_csm" placeholder={{ allowable_design_strain_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_design_strain_wrm" placeholder={{ allowable_design_strain_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_design_strain_filament" placeholder={{ allowable_design_strain_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Resin/Glass Ratio R</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" style="background-color: greenyellow;" name="R_csm" placeholder={{ R_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" style="background-color: greenyellow;" name="R_wrm" placeholder={{ R_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow" style="background-color: greenyellow;" name="R_filament" placeholder={{ R_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Final Allowable Design Strain(mm/mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="final_allowable_design_strain_csm" placeholder={{ final_allowable_design_strain_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="final_allowable_design_strain_wrm" placeholder={{ final_allowable_design_strain_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="final_allowable_design_strain_filament" placeholder={{ final_allowable_design_strain_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Resin Chemical Group</label>
+                                    </td>
+
+                                    <td>
+                                        <select class="box2-long-blue" style="background-color: yellow;" name="resin_chemical_group">
+                                            <option style="color: black; background-color: yellow;" selected>Polyester Resin</option>
+                                            <option style="color: black; background-color: yellow;">option2</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Allowable Strain Limited unit loading Us(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="Us_csm" placeholder={{ Us_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="Us_wrm" placeholder={{ Us_wrm }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Relative Density d</label>
+                                    </td>
+                                    
+                                    <td>
+                                        <input class="box2-long-blue" name="relative_density" placeholder={{ relative_density }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Design Unit Load Uz(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="Uz_csm" placeholder={{ Uz_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="Uz_wrm" placeholder={{ Uz_wrm }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Layer Thickness ti(mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ti_csm" placeholder={{ ti_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ti_wrm" placeholder={{ ti_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ti_filament" placeholder={{ ti_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Circumferential unit modulus Xphi(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="xphi_filament" placeholder={{ xphi_filament }}>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Ultimate Tensile Strength(N/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ultimate_tensile_strength_csm" placeholder={{ ultimate_tensile_strength_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ultimate_tensile_strength_wrm" placeholder={{ ultimate_tensile_strength_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="ultimate_tensile_strength_filament" placeholder={{ ultimate_tensile_strength_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Longitudinal Unit modulus Xx(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="xx_filament" placeholder={{ xx_filament }}>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Allowable Resin Strain(%)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_resin_strain_csm" placeholder={{ allowable_resin_strain_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_resin_strain_wrm" placeholder={{ allowable_resin_strain_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="allowable_resin_strain_filament" placeholder={{ allowable_resin_strain_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Circumferential Unit load UPhi(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow-filament" style="background-color: lightgrey;" name="uphi_filament" placeholder={{ uphi_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Per Layer Thickness tg(mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="tg_csm" placeholder={{ tg_csm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="tg_wrm" placeholder={{ tg_wrm }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-grey-disabled" name="tg_filament" placeholder={{ tg_filament }} disabled>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Axial Design Unit Load Ux(N/mm/kg/m2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow-filament" style="background-color: lightgrey;" name="uphi_filament" placeholder={{ ux_filament }} disabled>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Tex(g/km)</label>
+                                    </td>
+
+                                    <td>
+                                        <input class="box2-input-yellow-filament" name="tex_filament" placeholder={{ tex_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Winding Angle Circumferential Factor Fphi</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="fphi_filament" placeholder={{ fphi_filament }}>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Width of Roving(mm)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="width_of_roving_filament" placeholder={{ width_of_roving_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Winding Angle Longitudinal Factor Fx</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="fx_filament" placeholder={{ fx_filament }}>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label class="box1-label">Winding Angle(deg)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="winding_angle_filament" placeholder={{ winding_angle_filament }}>
+                                    </td>
+
+                                    <td>
+                                        <label class="box2-col2-label">Flexural Modulus(N/mm2)</label>
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="box2-input-yellow-filament" name="flexural_modulus_filament" placeholder={{ flexural_modulus_filament }}>
+                                    </td>
+                                </tr>
+
+                        </fieldset>
+                        <br>
+                        <br>
+
+                        <div class="col-md-12">
+                            <input type="submit" id="Calculate" value="Calculate" class="button" style="width: 10%; background-color: greenyellow;">
+                            <input type="button" id="Back" value="Back" class="button" style="width:10%; background-color: yellow;">
+                            <input type="button" id="Next" value="Next" class="button" style="width: 10%; background-color: lightgray;">
+                        </div>
+                    </fieldset>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </body>
+</html>

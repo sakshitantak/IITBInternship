@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Task 2</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="static/css/style.css">
+    </head>
+
+    <body>
+        <div class="container" style="margin: 0%; padding-top:3%;">
+            <div class="wrapper" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; border-radius: 10px; width: auto;">
+                <fieldset>
+                    <legend>BS 6464</legend>
+                    <form method="POST" action={{ url_for('calculate_after_input_bs6464') }} class="form-horizontal" style="width: 100vw;">
+                        <fieldset style="border: 1px solid#000; padding-left: 40px; padding-bottom: 20px;">
+                            <legend style="font-size: large; width: auto;">Input Properties</legend>
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightgrey;" for="input_design_pressure">Internal Design Pressure(N/mm2)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="internal_design_pressure" id="internal_design_pressure" placeholder={{ internal_design_pressure }}>
+                                </td>
+
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left: 20px; color: black; width: 450px; background-color: lightgrey" for="vaccuum_pressure">Vaccuum Pressure(N/mm2)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="vaccuum_pressure" id="vaccuum_pressure" placeholder={{ vaccuum_pressure }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left: 20px; color: black; width: 300px; background-color: lightgrey" for="moment_ext_load">Moment due to External Load(N.mm)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="moment_ext_load" id="moment_ext_load" placeholder={{ moment_ext_load }}>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightgrey" for="moment_self_wt">Moment due to self-weight(N.mm)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="moment_self_wt" id="moment_self_wt" placeholder={{ moment_self_wt }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left: 20px; color: black; width: 450px; background-color: lightgrey" for="fluid_density">Fluid Density(kg/mm3)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="fluid_density" id="fluid_density" placeholder={{ fluid_density }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: lightgrey" for="design_temp">Design Temperature(degree C)</label>
+                                    <input type="number" step="any" style="background-color: yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="design_temp" id="design_temp" placeholder={{ design_temp }}>
+                                </td>
+                            </tr>
+                        </fieldset>
+                        <br>
+
+                        <fieldset style="border: 1px solid#000; padding-left: 40px; padding-bottom: 20px;"">
+                            <legend style="font-size: large; width: auto;">Pipe Dimensions</legend>
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: greenyellow" for="D">Inner Diameter D(mm)</label>
+                                    <input type="number" step="any" style="background-color:yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="D" id="D" placeholder={{ D }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 450px; background-color: lightgrey" for="Qc">Circumferential Unit Load Qc(N/mm)</label>
+                                    <input style="background-color:lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="Qc" id="Qc" placeholder={{ Qc }} disabled>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: lightskyblue" for="num_layers">No. of Layers</label>
+                                    <input style="background-color:lightskyblue; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="num_layers" id="num_layers" placeholder={{ num_layers }} disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightgrey" for="L">Length of Pipeline L(m)</label>
+                                    <input type="number" step="any" style="background-color:yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="L" id="L" placeholder={{ L }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 450px; background-color: lightgrey" for="Qa">Maximum Axial Unit Load Qa(N/mm)</label>
+                                    <input style="background-color: lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="Qa" id="Qa" placeholder={{ Qa }} disabled>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: lightskyblue" for="thickness">Thickness(mm)</label>
+                                    <input style="background-color:lightskyblue; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="thickness" id="thickness" placeholder={{ thickness }} disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightskyblue" for="Tm">Min. Wall Thickness Tm(mm)</label>
+                                    <input style="background-color:lightskyblue; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="min_wall_thickness" id="min_wall_thickness" placeholder={{ min_wall_thickness }} disabled>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 450px; background-color: lightgrey" for="Qp">Permissible Axial Compressive Unit Load Qp(N/mm)</label>
+                                    <input style="background-color:lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="Qp" id="Qp" placeholder={{ Qp }} disabled>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: lightgrey" for="ulamphi">Ulamphi(N/mm)</label>
+                                    <input style="background-color:lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="ulamphi" id="ulamphi" placeholder={{ ulamphi }} disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightgrey" for="Do">Outer Diameter Do(mm)</label>
+                                    <input style="background-color:lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="Do" id="Do" placeholder={{ Do }} disabled>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 450px; background-color: lightgrey" for="support_span">Support Span(m)</label>
+                                    <input type="number" step="any" style="background-color:yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="support_span" id="support_span" placeholder={{ support_span }}>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: lightgrey" for="ulamx">Ulamx(N/mm)</label>
+                                    <input step="any" style="background-color:lightgrey; border:1px solid-black; color: white; margin-left: 20px; width: 100px;" name="ulamx" id="ulamx" placeholder={{ ulamx }} disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: lightgrey" for="composite_density">Composite Density(kg/mm3)</label>
+                                    <input type="number" step="any" style="background-color:yellow; border:1px solid-black; color: black; margin-left: 20px; width: 100px;" name="composite_density" id="composite_density" placeholder={{ composite_density }}>
+                                </td>
+                            </tr>
+                            </fieldset>
+                        <br>
+
+                        <fieldset style="padding-left:5px; border: 1px solid#000; padding-left: 40px; padding-bottom: 20px;">
+                            <legend style="font-size: large; width: auto;">Design Conditions</legend>
+                            <tr>
+                                <td>
+                                    <label style="padding-left:5px; color: black; width: 300px; background-color: violet" for="circumferential_qc">Circumferential Qc<=Ulamphi</label>
+                                    <select style="border:1px solid-black; margin-left: 20px; width: 100px;" name="circumferential_qc" onchange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+                                        <option style="color: black; background-color: greenyellow;" selected>Yes</option>
+                                        <option style="color: black; background-color: red;">No</option>
+                                    </select>
+                                    
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 450px; background-color: violet" for="axial_qa">Axial Qa < Ulamx</label>
+                                    <select style="border:1px solid-black; margin-left: 20px; width: 100px;" name="axial_qa" onchange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+                                        <option style="color: black; background-color: greenyellow;" selected>Yes</option>
+                                        <option style="color: black; background-color: red;">No</option>
+                                    </select>
+                                </td>
+
+                                <td>
+                                    <label style="padding-left:5px; margin-left:20px; color: black; width: 300px; background-color: violet" for="axial_buckling_qa">Axial Buckling Qa < Qp</label>
+                                    <select style="border:1px solid-black; margin-left: 20px; width: 100px;" name="axial_buckling_qa" onchange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
+                                        <option style="color: black; background-color: greenyellow;" selected>Yes</option>
+                                        <option style="color: black; background-color: red;">No</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <input type="submit" id="Calculate" value="Calculate" class="button" style="width: 10%; background-color: greenyellow;">
+                            <input type="button" id="Back" value="Back" class="button" style="width:10%; background-color: yellow;">
+                            <input type="button" id="Next" value="Next" class="button" style="width: 10%; background-color: lightgray;">
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById("Next").onclick = function() {
+                window.open(url_for('laminates_bs6464'), "_blank"); 
+            }
+        </script>
+    </body>
+</html>
